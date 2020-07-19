@@ -73,10 +73,10 @@ def add_person():
     E1 = tkinter.Entry(m, textvariable=first_name).grid(row=1, column=2)
     L2 = tkinter.Label(m, text="Last Name:").grid(row=2)
     E2 = tkinter.Entry(m, textvariable=last_name).grid(row=2, column=2)
+    person = (first_name.get(), last_name.get())  # creates a person tuple
     conn = create_connection("gui_database.db")
     tkinter.Button(m, text="Submit", width=25,
-                   command=lambda: create_person(conn, (first_name.get(), last_name.get()))).grid(row=5,
-                                                                                                  column=2)
+                   command=lambda: create_person(conn, person)).grid(row=5, column=2)  # calls create person function
 
 
 def add_student():
